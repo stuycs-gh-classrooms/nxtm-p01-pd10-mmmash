@@ -69,3 +69,53 @@ CLASS NAME1
   - LIST INSTANCE VARS HERE
 - METHODS
   - LIST METHODS HERE
+
+-------------------
+Class Atari {
+	int ballPosX;
+	int ballPosY;
+int [] brickSize;
+int barSize;
+Atari() {
+//initialize stuff 
+}
+void display() {
+//calls move, bar, grid
+}
+void move() {
+//circle movement
+}
+void bar() {
+//sets up bar movement at bottom
+}
+void grid() {
+//creates rectangles
+}
+
+}
+
+Atari ball;
+Atari bar;
+boolean hit;
+boolean play;
+int score;
+boolean brick; //all bricks are assigned ‘true’, but when they are filled black/they have already been collided with, this is set to ‘false’ and the ball cannot collide with it anymore
+//add timer
+
+void setup() {
+
+}
+
+void draw() {
+//calls everything
+}
+
+int score() {
+
+}
+
+void endScreen() {
+
+}
+
+
