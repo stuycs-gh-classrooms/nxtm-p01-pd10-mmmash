@@ -22,53 +22,84 @@ The first phase will be to work on this document.
 
 ## Phase 0: Selection, Analysis & Plan
 
-#### Selected Project: CHOOSE WISELY
+#### Selected Project: Breakout
 
 ### Necessary Features
 What are the core features that your program should have? These should be things that __must__ be implemented in order to make the program useable/playable, not extra features that could be added to make the program more interesting/fun.
 
-YOUR ANSWERS HERE
+- A user controlled paddle.
+- A grid of bricks.
+- A ball that bounces off the paddle, bricks, and side walls.
+- Bricks that disappear or are damaged when hit by the ball.
+- Loss of "life" if the ball gets past the paddle.
+- A set number (more than one) of "lives".
+- The ability to play/pause the game.
+- The ability to reset the game.
+- Some continuation of the game if all the bricks have been destroyed.
 
 ### Extra Features
 What are some features that are not essential to the program, but you would like to see (provided you have time after completing the necessary features. Theses can be customizations that are not part of the core requirements.
 
-YOUR ANSWERS HERE
+- Timer
+- Secret Ending (e.g. something only unlocked with a score of 100, etc)
+- different types of bricks
 
 ### Array Usage
 How will you be using arrays in this project?
 
 1D Array:
-- YOUR ANSER HERE
+- Int[][] ballPos;
+//controls balls positions, 2d array allows us to alter both the xpos and the ypos
 
 2D Array:
-- YOUR ANSWER HERE
+- int[] brickSize;
+//controls the num of bricks that appear on the screen, its size, etc
 
 
 ### Controls
 How will your program be controlled? List all keyboard commands and mouse interactions.
 
 Keyboard Commands:
-- LIST OF COMMANDS HERE
+- 'LEFT ARROW KEY' = move left
+- 'RIGHT ARROW KEY' = move right
 
 Mouse Control:
-- Mouse movement:
-- Mouse pressed:
+- Mouse movement: controls the bar movement
+- Mouse pressed: ball is released from the bar position
 
 
 ### Classes
 What classes will you be creating for this project? Include the instance variables and methods that you believe you will need. You will be required to create at least 2 different classes. If you are going to use classes similar to those we've made for previous assignments, you will have to add new features to them.
 
-CLASS NAME0
+Class Atari { 
 - Instance variables:
-  - LIST INSTANCE VARS HERE
-- METHODS
-  - LIST METHODS HERE
+  - int [] brickSize;
+  - int barSize;
 
-CLASS NAME1
-- Instance variables:
-  - LIST INSTANCE VARS HERE
 - METHODS
-  - LIST METHODS HERE
+  - void display() {
+//calls move, bar, grid
+}
+  - void move() {
+//circle movement
+}
+  - void bar() {
+//sets up bar movement at bottom
+}
+  - void grid() {
+//creates rectangles }
+}
+
+Class Ball {
+- Instance variables:
+  - Int[][] ballPos; (?)
+- METHODS
+  - void setup() {
+  //creates the array of balls }
+  - void move() {
+  //ball spawn point (at bar) + movement }
+  - void MousePressed() {
+  //if mouse pressed then launch ball at bar position
 
 -------------------
 Class Atari {
