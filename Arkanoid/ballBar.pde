@@ -1,1 +1,3 @@
-
+class ballBar {
+ int[][] ballPos; 
+}
