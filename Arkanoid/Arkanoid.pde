@@ -7,3 +7,6 @@ void setup() {
 
 void mousePressed() {
 }
+
+void keyPressed() {
+}
