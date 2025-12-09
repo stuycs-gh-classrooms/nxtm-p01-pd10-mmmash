@@ -48,13 +48,12 @@ What are some features that are not essential to the program, but you would like
 How will you be using arrays in this project?
 
 1D Array:
-- Int[][] ballPos;
-//controls balls positions, 2d array allows us to alter both the xpos and the ypos
-
-2D Array:
 - int[] brickSize;
 //controls the num of bricks that appear on the screen, its size, etc
 
+2D Array:
+- Int[][] ballPos;
+//controls balls positions, 2d array allows us to alter both the xpos and the ypos
 
 ### Controls
 How will your program be controlled? List all keyboard commands and mouse interactions.
@@ -62,6 +61,8 @@ How will your program be controlled? List all keyboard commands and mouse intera
 Keyboard Commands:
 - 'LEFT ARROW KEY' = move left
 - 'RIGHT ARROW KEY' = move right
+- 'r' = reset
+- spacebar = pause
 
 Mouse Control:
 - Mouse movement: controls the bar movement
@@ -71,7 +72,7 @@ Mouse Control:
 ### Classes
 What classes will you be creating for this project? Include the instance variables and methods that you believe you will need. You will be required to create at least 2 different classes. If you are going to use classes similar to those we've made for previous assignments, you will have to add new features to them.
 
-Class Atari { 
+Class ballBar { 
 - Instance variables:
   - int [] brickSize;
   - int barSize;
@@ -90,9 +91,10 @@ Class Atari {
 //creates rectangles }
 }
 
-Class Ball {
+Class upgrades {
 - Instance variables:
-  - Int[][] ballPos; (?)
+  - Int[] upgPos;
+ 
 - METHODS
   - void setup() {
   //creates the array of balls }
