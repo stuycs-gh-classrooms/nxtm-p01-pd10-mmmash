@@ -43,6 +43,7 @@ What are some features that are not essential to the program, but you would like
 - Timer
 - Secret Ending (e.g. something only unlocked with a score of 100, etc)
 - different types of bricks
+- reset button //[CHANGE 12/09]
 
 ### Array Usage
 How will you be using arrays in this project?
@@ -59,8 +60,7 @@ How will you be using arrays in this project?
 How will your program be controlled? List all keyboard commands and mouse interactions.
 
 Keyboard Commands:
-- 'LEFT ARROW KEY' = move left
-- 'RIGHT ARROW KEY' = move right
+- //[CHANGE 12/09] - removed 'LEFT ARROW' key and 'RIGHT ARROW' key to control bar movement.
 - 'r' = reset
 - spacebar = pause
 
