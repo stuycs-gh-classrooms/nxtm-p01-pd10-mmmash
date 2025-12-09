@@ -3,6 +3,7 @@ int barSize;
 int score;
 
 void setup() {
+  size(880,880);
 }
 
 void mousePressed() {
