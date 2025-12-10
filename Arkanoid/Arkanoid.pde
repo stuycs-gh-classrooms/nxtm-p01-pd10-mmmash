@@ -2,6 +2,7 @@ int [] brickSize;
 int barSize;
 int score;
 ballBar ball;
+boolean movement;
 
 void setup() {
   size(880, 880);
@@ -10,11 +11,17 @@ void setup() {
 }
 
 void draw() {
+  background(0);
   ball.display();
 }
 
 void mousePressed() {
+  if (mousePressed) {
+    movement=true;
+  }
 }
+
+
 
 void keyPressed() {
   if (key == CODED) {

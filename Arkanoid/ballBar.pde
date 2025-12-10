@@ -1,20 +1,30 @@
 class ballBar {
-  int[][] ballPos;
+  //int[][] ballPos;
   int[][] bricks;
   int NUM_ROWS = 4;
-  int NUM_COLS = 15;
+  int NUM_COLS = 18;
+  PVector ballPos;
+  int xSpeed;
+  int ySpeed;
+  int startX;
+  int startY;
+ 
 
   ballBar() {
+    startX = width/2-55;
+    startY = height- 110;
     bricks = new int[NUM_ROWS][NUM_COLS];
     for (int r = 0; r < NUM_ROWS; r++) {
       for (int c = 0; c < NUM_COLS; c++) {
-        bricks[r][c] = color(random(255), random(255), random(255));
+        bricks[r][c] = color(random(5, 255), random(5, 255), random(5, 255));
       }
     }
+    ballPos = new PVector(startX, startY);
   }
 
   void display() {
     grid(bricks);
+    bar();
   }
 
   void grid(int[][] data) {
@@ -35,7 +45,36 @@ class ballBar {
   }
 
   void bar() {
+
+    fill(255);
+    if (movement) {
+      rect(mouseX, height-100, 120, 10);
+    } else {
+      rect(width/2-100, height-100, 120, 10);
+    }
+    ball();
   }
-  void move() {
+
+  void ball() {
+
+    int size = 20;
+    fill(255, 0, 0);
+    //circle(width/2-55, height-110, size);
+    if (movement) {
+      for(int i=0; i<
+    }
+    //circle(width/2-55, height-110, size);
+
+    println("ballx: " + ballPos.x);
+    println("bally: " + ballPos.y);
+  }
+
+
+  boolean move() {
+    if (movement) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
