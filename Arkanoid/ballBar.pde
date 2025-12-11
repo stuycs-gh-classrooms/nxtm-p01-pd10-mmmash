@@ -2,7 +2,7 @@ class ballBar {
   //int[][] ballPos;
   int[][] bricks;
   int NUM_ROWS = 4;
-  int NUM_COLS = 18;
+  int NUM_COLS = 15;
   PVector ballPos;
   int xSpeed;
   int ySpeed;
@@ -29,7 +29,7 @@ class ballBar {
 
   void grid(int[][] data) {
     int startY = height/3;
-    int wide = 40;
+    int wide = 50;
     int tall = 20;
     int gap = 4;
     int startX;
@@ -61,7 +61,6 @@ class ballBar {
     fill(255, 0, 0);
     //circle(width/2-55, height-110, size);
     if (movement) {
-      for(int i=0; i<
     }
     //circle(width/2-55, height-110, size);
 
