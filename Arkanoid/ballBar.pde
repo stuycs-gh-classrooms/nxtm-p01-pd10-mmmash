@@ -1,16 +1,5 @@
 class ballBar {
-<<<<<<< HEAD
-  //int[][] ballPos;
-  int[][] bricks;
-  int NUM_ROWS = 4;
-  int NUM_COLS = 15;
-  PVector ballPos;
-  int xSpeed;
-  int ySpeed;
-  int startX;
-  int startY;
- 
-=======
+
   int NUM_ROWS = 8;
   int NUM_COLS = 20;
   int brickW= 40;
@@ -25,7 +14,7 @@ class ballBar {
   int size = 20;
   color[][] brickColor;
   GameScore score;
->>>>>>> e94358b175e352fc147234010fdf3f96b39e69f6
+
 
   ballBar(GameScore s) {
     score = s;
@@ -45,21 +34,6 @@ class ballBar {
     bar();
   }
 
-<<<<<<< HEAD
-  void grid(int[][] data) {
-    int startY = height/3;
-    int wide = 50;
-    int tall = 20;
-    int gap = 4;
-    int startX;
-
-    for (int r = 0; r < data.length; r++) {
-      startX = 20;
-      for (int c = 0; c < data[r].length; c++) {
-        fill(data[r][c]);
-        rect(startX, startY + r*(tall+gap), wide, tall);
-        startX += wide + gap;
-=======
   void grid() {
     for (int r = 0; r<NUM_ROWS; r++) {
       for (int c = 0; c<NUM_COLS; c++) {
@@ -69,7 +43,6 @@ class ballBar {
           fill(brickColor[r][c]);
           rect(startX, startY, brickW, brickH);
         }
->>>>>>> e94358b175e352fc147234010fdf3f96b39e69f6
       }
     }
   }
@@ -97,19 +70,20 @@ class ballBar {
       x+=dx;
       y+=dy;
 
-<<<<<<< HEAD
+
     int size = 20;
     fill(255, 0, 0);
     //circle(width/2-55, height-110, size);
     if (movement) {
-=======
+
       if (x < 10 || x > width-10) dx*=-1;
       if (y < 10) dy*=-1;
 
       collisionWithBar();
       collisionWithBricks();
->>>>>>> e94358b175e352fc147234010fdf3f96b39e69f6
+
     }
+  }
   }
 
   void ball() {
