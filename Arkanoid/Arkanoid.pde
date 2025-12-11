@@ -8,6 +8,8 @@ boolean playing;
 int lives;
 PFont cuteFont;
 GameScore score;
+int space=0;
+boolean delay = false;
 
 void setup() {
   size(880, 880);
@@ -49,6 +51,8 @@ void draw() {
     text("Better luck next time :)", 190, height/2);
     noLoop();
   }
+  println("delay: " +delay);
+  println("space: "+space);
 }
 
 void mousePressed() {
@@ -59,7 +63,7 @@ void mousePressed() {
     int bh = 100;
 
     if (mouseX > bx && mouseX < bx + bw &&
-        mouseY > by && mouseY < by + bh) {
+      mouseY > by && mouseY < by + bh) {
       startPage = false;
     }
   } else {
@@ -78,6 +82,13 @@ void keyPressed() {
       mouseX += 20;
       if (mouseX > width - barSize) mouseX = width - barSize;
     }
+  }
+  if (key=='r' || key == 'R') {
+    reset();
+  }
+  if (key == ' ') {
+    space+=1;
+    pause(delay);
   }
 }
 
@@ -102,4 +113,23 @@ boolean endScreen() {
   if (lives == 0) {
     return true;
   } else return false;
+}
+
+void reset() {
+  lives=3;
+  playing=false;
+  startPage=true;
+  playGame();
+  score.points=0;
+}
+
+void pause(boolean stop) {
+  if (space % 2 != 0) {
+    delay=true;
+  } else {
+    delay=false;
+  }
+  if (stop) {
+    delay(1000);
+  } 
 }

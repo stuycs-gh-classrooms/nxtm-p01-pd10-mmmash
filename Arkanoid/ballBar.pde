@@ -71,19 +71,18 @@ class ballBar {
       y+=dy;
 
 
-    int size = 20;
-    fill(255, 0, 0);
-    //circle(width/2-55, height-110, size);
-    if (movement) {
+      int size = 20;
+      fill(255, 0, 0);
+      //circle(width/2-55, height-110, size);
+      if (movement) {
 
-      if (x < 10 || x > width-10) dx*=-1;
-      if (y < 10) dy*=-1;
+        if (x < 10 || x > width-10) dx*=-1;
+        if (y < 10) dy*=-1;
 
-      collisionWithBar();
-      collisionWithBricks();
-
+        collisionWithBar();
+        collisionWithBricks();
+      }
     }
-  }
   }
 
   void ball() {
@@ -126,6 +125,15 @@ class ballBar {
     }
   }
 
+  void levels () {
+    for (int r = 0; r <NUM_ROWS; r++) {
+      for (int c = 0; c <NUM_COLS; c++) {
+        if(brickColor[r][c] == color(0)) {
+          
+        }
+      }
+    }
+  }
 
   boolean offScreen() {
     return y > height;
