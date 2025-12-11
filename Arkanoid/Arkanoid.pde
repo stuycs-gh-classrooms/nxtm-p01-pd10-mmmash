@@ -8,8 +8,6 @@ boolean playing;
 int lives;
 PFont cuteFont;
 GameScore score;
-int space=0;
-boolean delay = false;
 
 void setup() {
   size(880, 880);
@@ -51,8 +49,8 @@ void draw() {
     text("Better luck next time :)", 190, height/2);
     noLoop();
   }
-  println("delay: " +delay);
-  println("space: "+space);
+  //println("delay: " +delay);
+  //println("space: "+space);
 }
 
 void mousePressed() {
@@ -87,8 +85,8 @@ void keyPressed() {
     reset();
   }
   if (key == ' ') {
-    space+=1;
-    pause(delay);
+    //space+=1;
+    pause();
   }
 }
 
@@ -123,13 +121,6 @@ void reset() {
   score.points=0;
 }
 
-void pause(boolean stop) {
-  if (space % 2 != 0) {
-    delay=true;
-  } else {
-    delay=false;
-  }
-  if (stop) {
-    delay(1000);
-  } 
+void pause() {
+  delay(1000);
 }
