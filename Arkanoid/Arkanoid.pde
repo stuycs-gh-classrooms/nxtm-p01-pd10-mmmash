@@ -8,6 +8,7 @@ boolean playing;
 int lives;
 PFont cuteFont;
 GameScore score;
+boolean paused;
 
 void setup() {
   size(880, 880);
@@ -17,6 +18,7 @@ void setup() {
   startPage = true;
   cuteFont = createFont("Comic Sans MS", 50);
   lives = 3;
+  paused = false;
 }
 
 void draw() {
@@ -29,12 +31,14 @@ void draw() {
 
   background(0);
   ball.display();
-  ball.move();
+  if (!paused) {
+    ball.move();
+  }
   textSize(20);
   text("Lives: " + lives, 10, 50);
   score.display();
 
-  if (ball.offScreen() && ball.launched) {
+  if (!paused && ball.offScreen() && ball.launched) {
     lives -= 1;
     movement = false;
     ball.launched = false;
@@ -49,8 +53,12 @@ void draw() {
     text("Better luck next time :)", 190, height/2);
     noLoop();
   }
-  //println("delay: " +delay);
-  //println("space: "+space);
+
+  if (paused) {
+    fill(255);
+    textSize(60);
+    text("PAUSED", width/2 - 120, height/2);
+  }
 }
 
 void mousePressed() {
@@ -65,28 +73,32 @@ void mousePressed() {
       startPage = false;
     }
   } else {
-    movement = true;
-    ball.launch();
+    if (!paused) {
+      movement = true;
+      ball.launch();
+    }
   }
 }
 
 void keyPressed() {
-  if (key == CODED) {
-    if (keyCode == LEFT) {
-      mouseX -= 20;
-      if (mouseX < 0) mouseX = 0;
-    }
-    if (keyCode == RIGHT) {
-      mouseX += 20;
-      if (mouseX > width - barSize) mouseX = width - barSize;
+  if (!paused) {
+    if (key == CODED) {
+      if (keyCode == LEFT) {
+        mouseX -= 20;
+        if (mouseX < 0) mouseX = 0;
+      }
+      if (keyCode == RIGHT) {
+        mouseX += 20;
+        if (mouseX > width - barSize) mouseX = width - barSize;
+      }
     }
   }
+
   if (key=='r' || key == 'R') {
     reset();
   }
   if (key == ' ') {
-    //space+=1;
-    pause();
+    paused = !paused;
   }
 }
 
@@ -121,6 +133,3 @@ void reset() {
   score.points=0;
 }
 
-void pause() {
-  delay(1000);
-}
