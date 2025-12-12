@@ -131,5 +131,5 @@ void reset() {
   startPage=true;
   playGame();
   score.points=0;
+  paused = false;
 }
-
