@@ -1,5 +1,4 @@
 class ballBar {
-
   int NUM_ROWS = 8;
   int NUM_COLS = 20;
   int brickW= 40;
@@ -15,6 +14,7 @@ class ballBar {
   color[][] brickColor;
   GameScore score;
 
+  int level = 1;
 
   ballBar(GameScore s) {
     score = s;
@@ -70,17 +70,14 @@ class ballBar {
       x+=dx;
       y+=dy;
 
+      if (x < 10 || x > width-10) dx*=-1;
+      if (y < 10) dy*=-1;
 
-      int size = 20;
-      fill(255, 0, 0);
-      //circle(width/2-55, height-110, size);
-      if (movement) {
+      collisionWithBar();
+      collisionWithBricks();
 
-        if (x < 10 || x > width-10) dx*=-1;
-        if (y < 10) dy*=-1;
-
-        collisionWithBar();
-        collisionWithBricks();
+      if (allBricksGone()) {
+        nextLevel();
       }
     }
   }
@@ -125,14 +122,34 @@ class ballBar {
     }
   }
 
-  void levels () {
-    for (int r = 0; r <NUM_ROWS; r++) {
-      for (int c = 0; c <NUM_COLS; c++) {
-        if(brickColor[r][c] == color(0)) {
-          
-        }
+  boolean allBricksGone() {
+    for (int r = 0; r < NUM_ROWS; r++) {
+      for (int c = 0; c < NUM_COLS; c++) {
+        if (brickColor[r][c] != color(0)) return false;
       }
     }
+    return true;
+  }
+
+  void nextLevel() {
+    level++;
+    //NUM_ROWS = 6 + level;
+    //NUM_COLS = 12 + level;
+
+    brickColor = new color[NUM_ROWS][NUM_COLS];
+
+    for (int r = 0; r < NUM_ROWS; r++) {
+      for (int c = 0; c < NUM_COLS; c++) {
+        brickColor[r][c] = color(random(10, 255), random(10, 255), random(10, 255));
+      }
+    }
+
+    x = width/2;
+    y = height-60;
+    dx = 4 + level*0.5;
+    dy = -4 - level*0.5;
+    launched = false;
+    movement = false;
   }
 
   boolean offScreen() {
